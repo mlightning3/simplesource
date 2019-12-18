@@ -1,0 +1,15 @@
+{{ partial "header.html" . }}
+<div class="content">
+	{{ if not .IsHome }}
+	<h1>{{ .Title | markdownify }}</h1>
+	{{ end }}
+	<ul>
+		{{ range $key, $value := .Data.Terms }}
+		<li>
+			<a href="{{ (print "/" $.Data.Plural "/" $key | urlize) | relURL }}">{{ $key }}</a>
+			({{ len $value }})
+		</li>
+		{{ end }}
+	</ul>
+</div>
+{{ partial "footer.html" . }}

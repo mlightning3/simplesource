@@ -1,0 +1,14 @@
+{{ partial "header.html" . }}
+<div class="content">
+	{{ if not .IsHome }}
+	<h1>{{ .Title | markdownify }}</h1>
+	{{ end }}
+	<ul>
+		{{ range (where .Data.Pages "Section" "!=" "") }}
+		<li>{{ .Date.Format "January 2, 2006" }}
+			<a href="{{ .URL }}">{{ .Title | markdownify }}</a>
+		</li>
+		{{ end }}
+	</ul>
+</div>
+{{ partial "footer.html" . }}

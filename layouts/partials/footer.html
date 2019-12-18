@@ -1,0 +1,11 @@
+		<footer>
+			<div class="box">
+				<div class="content">
+					{{ with .Site.Params.footer }}
+					{{ . | markdownify }}
+					{{ end }}
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

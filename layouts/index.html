@@ -1,0 +1,13 @@
+{{ partial "header.html" . }}
+<div class="content">
+	{{ .Content }}
+
+	<ul>
+		{{ range .Site.RegularPages }}
+		<li>{{ .Date.Format "January 2, 2006" }}
+			<a href="{{ .URL }}">{{ .Title | markdownify }}</a>
+		</li>
+		{{ end }}
+	</ul>
+</div>
+{{ partial "footer.html" . }}

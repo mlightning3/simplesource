@@ -1,0 +1,13 @@
+name = "Simplesource"
+license = "GPL3"
+licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
+description = "A simple theme, inspired by SourceHut and Hacker News"
+homepage = "http://example.com/"
+tags = ["minimal", "blog", "minimalist"]
+features = ["blog"]
+min_version = "0.41"
+
+[author]
+  name = "Matt Kohls"
+  homepage = "matt-in.space"
+
