@@ -1,9 +1,24 @@
 {{ partial "header.html" . }}
-<div class="content">
-	<h2>404 Resource Not Found</h2>
-	<p>
-	The thing you are looking for can not be found.
-	<a href="{{ "/" | relURL }}">Home</a>
-	</p>
-</div>
+<main>
+	<header class="header-inline">
+		<div class="heading">
+			<div class="info">
+				<div class="content">
+					{{ if (gt .Params.date 0) }} {{ .Date.Format "January 2, 2006" }} {{ end }} {{ if (gt .Params.author 0) }} by {{ with .Params.author }} {{ . }} {{ end }} {{ end }}
+				</div>
+			</div>
+			<div class="content">
+				<h1>{{ .Title | markdownify }}</h1>
+			</div>
+		</div>
+	</header>
+	<div class="content">
+		<p>
+		The thing you are looking for can not be found.
+		</p>
+		<p>
+		<a href="{{ "/" | relURL }}">Home</a>
+		</p>
+	</div>
+</main>
 {{ partial "footer.html" . }}

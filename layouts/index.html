@@ -1,13 +1,28 @@
 {{ partial "header.html" . }}
-<div class="content">
-	{{ .Content }}
+<main>
+	<header class="header-inline">
+		<div class="heading">
+			<div class="info">
+				<div class="content">
+					{{ if (gt .Params.date 0) }} {{ .Date.Format "January 2, 2006" }} {{ end }} {{ if (gt .Params.author 0) }} by {{ with .Params.author }} {{ . }} {{ end }} {{ end }}
+				</div>
+			</div>
+			<div class="content">
+				<h1>{{ .Title | markdownify }}</h1>
+			</div>
+		</div>
+	</header>
 
-	<ul>
-		{{ range .Site.RegularPages }}
-		<li>{{ .Date.Format "January 2, 2006" }}
-			<a href="{{ .URL }}">{{ .Title | markdownify }}</a>
-		</li>
-		{{ end }}
-	</ul>
-</div>
+	<div class="content">
+		{{ .Content }}
+
+		<ul>
+			{{ range where .Site.RegularPages "Section" "posts" }}
+			<li>{{ .Date.Format "January 2, 2006" }}
+				<a href="{{ .URL }}">{{ .Title | markdownify }}</a>
+			</li>
+			{{ end }}
+		</ul>
+	</div>
+</main>
 {{ partial "footer.html" . }}

@@ -1,14 +1,25 @@
 {{ partial "header.html" . }}
-<div class="content">
-	{{ if not .IsHome }}
-	<h1>{{ .Title | markdownify }}</h1>
-	{{ end }}
-	<ul>
-		{{ range (where .Data.Pages "Section" "!=" "") }}
-		<li>{{ .Date.Format "January 2, 2006" }}
-			<a href="{{ .URL }}">{{ .Title | markdownify }}</a>
-		</li>
-		{{ end }}
-	</ul>
-</div>
+<main>
+	<header class="header-inline">
+		<div class="heading">
+			<div class="info">
+				<div class="content">
+					{{ if (gt .Params.date 0) }} {{ .Date.Format "January 2, 2006" }} {{ end }} {{ if (gt .Params.author 0) }} by {{ with .Params.author }} {{ . }} {{ end }} {{ end }}
+				</div>
+			</div>
+			<div class="content">
+				<h1>{{ .Title | markdownify }}</h1>
+			</div>
+		</div>
+	</header>
+	<div class="content">
+		<ul>
+			{{ range (where .Data.Pages "Section" "!=" "") }}
+			<li>{{ .Date.Format "Jan 2nd, 2006" }}
+				<a href="{{ .URL }}">{{ .Title | markdownify }}</a>
+			</li>
+			{{ end }}
+		</ul>
+	</div>
+</main>
 {{ partial "footer.html" . }}
