@@ -161,6 +161,23 @@ header h1 a small {
  font-size: .9rem
 }
 
+table {
+ border-collapse: collapse;
+ border: 0px
+}
+
+th {
+ border-bottom: 1px solid  #212121
+}
+
+th, td {
+ padding: 5px;
+}
+
+tr:nth-child(even) {
+ background-color: #f6f6f6
+}
+
 footer {
  margin: 0 0 1rem
 }
