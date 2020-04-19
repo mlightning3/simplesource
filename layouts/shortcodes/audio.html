@@ -1,0 +1,16 @@
+<audio controls>
+	{{ if .IsNamedParams }}
+		{{ if isset .Params "src" }}
+			{{ if isset .Params "type" }}
+				<source src="{{ .Get "src" }}" type="audio/{{ .Get "type" }}">
+			{{ else }}
+				{{ errorf "Missing type parameter: %s" .Position }}
+			{{ end }}
+		{{ else }}
+			{{ errorf "Missing src parameter: %s" .Position }}
+		{{ end }}
+	{{ else }}
+		{{ errorf "Missing parameter names: %s" .Position }}
+	{{ end }}
+Browser does not support embedded audio.
+</audio>

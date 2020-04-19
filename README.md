@@ -4,6 +4,11 @@ simplesource
 A Hugo theme that is minimalistic and 'simple'. Inspired and partially based on
 the CSS used for [sourcehut](https://sourcehut.org/).
 
+### Features
+
+#### Shortcodes:
+* audio	Allows for embedding of audio files. Params: src="" type=""
+
 Copyright and Licenses
 ======================
 
